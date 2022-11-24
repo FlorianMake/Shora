@@ -1,11 +1,60 @@
 #include "mainwindow.h"
 
+#include <QHeaderView>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
 {
+    m_mainScene = new QWidget();
+
+    m_layout = new QVBoxLayout(m_mainScene);
+
+    m_buttonLayout = new QHBoxLayout();
+    m_trainingMode = new QPushButton();
+    m_trainingMode->setText("Training mode");
+    m_userSelection = new QPushButton();
+    m_userSelection->setText("User selection");
+    m_settings = new QPushButton();
+    m_settings->setText("Settings");
+    m_buttonLayout->addWidget(m_trainingMode);
+    m_buttonLayout->addWidget(m_userSelection);
+    m_buttonLayout->addStretch(1);
+    m_buttonLayout->addWidget(m_settings);
+
+    m_layout->addLayout(m_buttonLayout);
+
+    m_centralTab = new QTabWidget();
+    m_layout->addWidget(m_centralTab);
+
+    m_mainScene->setLayout(m_layout);
+    setCentralWidget(m_mainScene);
+
+    m_settingsTab = new SettingsTabWidget();
+    m_centralTab->insertTab(MM_SETTINGS, m_settingsTab, "Settings");
+    m_userSettingsTab = new UserSettingsTabWidget();
+    m_centralTab->insertTab(MM_USER_SELECTION, m_userSettingsTab, "User settings");
+    m_trainingsModeTab = new TrainingsModeWidget();
+    m_centralTab->insertTab(MM_TRAINING, m_trainingsModeTab, "Trainings mode");
+    m_centralTab->setCurrentIndex(MM_TRAINING);
+
+    connect( m_settings, &QPushButton::clicked, this, &MainWindow::switchSettingsTab );
+    connect( m_userSelection, &QPushButton::clicked, this, &MainWindow::switchUserSettingsTab );
+    connect( m_trainingMode, &QPushButton::clicked, this, &MainWindow::switchTrainingModeTab );
 }
 
 MainWindow::~MainWindow()
 {
+}
+
+void MainWindow::switchSettingsTab() {
+    m_centralTab->setCurrentIndex(MM_SETTINGS);
+}
+
+void MainWindow::switchUserSettingsTab() {
+    m_centralTab->setCurrentIndex(MM_USER_SELECTION);
+}
+
+void MainWindow::switchTrainingModeTab() {
+    m_centralTab->setCurrentIndex(MM_TRAINING);
 }
 
