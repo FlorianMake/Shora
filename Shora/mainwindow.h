@@ -7,7 +7,7 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QWidget>
-#include <QTabWidget>
+#include <QStackedWidget>
 
 #include <settingstabwidget.h>
 #include <usersettingstabwidget.h>
@@ -43,7 +43,7 @@ private:
     QHBoxLayout* m_buttonLayout;
     QVBoxLayout* m_layout;
 
-    QTabWidget* m_centralTab;
+    QStackedWidget* m_centralTab;
 
     SettingsTabWidget* m_settingsTab;
     UserSettingsTabWidget* m_userSettingsTab;

@@ -17,6 +17,8 @@ Qt project structure...
 	/3rdparty/ <-- different 3rd party stuff... lets see where we get 
 		opencv/ <-- open source image processing library (check if i can upload the used bins here or if not)
 		maybe camera driver / <-- lets see when we got startet
+	/qss/ <- style sheets for application
+
 
 /usecases/
 
