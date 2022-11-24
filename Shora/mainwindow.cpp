@@ -23,18 +23,19 @@ MainWindow::MainWindow(QWidget *parent)
 
     m_layout->addLayout(m_buttonLayout);
 
-    m_centralTab = new QTabWidget();
+    m_centralTab = new QStackedWidget();
     m_layout->addWidget(m_centralTab);
+
 
     m_mainScene->setLayout(m_layout);
     setCentralWidget(m_mainScene);
 
     m_settingsTab = new SettingsTabWidget();
-    m_centralTab->insertTab(MM_SETTINGS, m_settingsTab, "Settings");
+    m_centralTab->insertWidget(MM_SETTINGS, m_settingsTab);
     m_userSettingsTab = new UserSettingsTabWidget();
-    m_centralTab->insertTab(MM_USER_SELECTION, m_userSettingsTab, "User settings");
+    m_centralTab->insertWidget(MM_USER_SELECTION, m_userSettingsTab);
     m_trainingsModeTab = new TrainingsModeWidget();
-    m_centralTab->insertTab(MM_TRAINING, m_trainingsModeTab, "Trainings mode");
+    m_centralTab->insertWidget(MM_TRAINING, m_trainingsModeTab);
     m_centralTab->setCurrentIndex(MM_TRAINING);
 
     connect( m_settings, &QPushButton::clicked, this, &MainWindow::switchSettingsTab );
