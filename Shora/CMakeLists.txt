@@ -18,6 +18,9 @@ set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
         mainwindow.h
+        settingstabwidget.h settingstabwidget.cpp
+        usersettingstabwidget.h usersettingstabwidget.cpp
+        trainingsmodewidget.h trainingsmodewidget.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
