@@ -31,10 +31,14 @@ MainWindow::MainWindow(QWidget *parent)
     setCentralWidget(m_mainScene);
 
     m_settingsTab = new SettingsTabWidget();
+    m_settingsTab->setObjectName("SettingsTab");
     m_centralTab->insertWidget(MM_SETTINGS, m_settingsTab);
+
     m_userSettingsTab = new UserSettingsTabWidget();
+    m_userSettingsTab->setObjectName("UserSettingsTab");
     m_centralTab->insertWidget(MM_USER_SELECTION, m_userSettingsTab);
     m_trainingsModeTab = new TrainingsModeWidget();
+    m_trainingsModeTab->setObjectName("TrainingsModeTab");
     m_centralTab->insertWidget(MM_TRAINING, m_trainingsModeTab);
     m_centralTab->setCurrentIndex(MM_TRAINING);
 
