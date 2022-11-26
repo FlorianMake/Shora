@@ -1,2 +1,27 @@
-QPushButton { background-color: red }
+QPushButton { background-color: green }
 
+QStackedWidget {
+    min-width: 800;
+    min-height: 600;
+}
+
+QWidget#SettingsTab {
+    border-color: black;
+    padding: 5px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+QWidget#UserSettingsTab {
+    border-color: green;
+    padding: 5px;
+    border-style: solid;
+    border-width: 1px;
+}
+
+QWidget#TrainingsModeTab {
+    border-color: red;
+    padding: 5px;
+    border-style: solid;
+    border-width: 1px;
+}
